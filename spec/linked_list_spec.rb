@@ -22,7 +22,6 @@ RSpec.describe LinkedList do
     it '#count' do
       list = LinkedList.new
       list.append("doop")
-
       expect(list.count).to eq 1
     end
 
@@ -31,6 +30,25 @@ RSpec.describe LinkedList do
       list.append("doop")
 
       expect(list.to_string).to eq "doop"
+    end
+  end
+
+  describe 'Iteration 2' do
+    it 'can add mulitiple sounds' do
+      list = LinkedList.new
+
+      expect(list.head).to be_nil
+
+      sound = list.append("doop")
+
+      expect(list.head).to eq sound
+      expect(list.head.next_node).to be_nil
+
+      sound_2 = list.append("deep")
+
+      expect(list.head.next_node).to eq "deep"
+      expect(list.count).to eq 2
+      expect(list.to_string).to eq "doop deep"
     end
   end
 end
