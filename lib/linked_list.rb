@@ -30,7 +30,7 @@ class LinkedList
         current = current.next_node
         @array << current.data
       end
-      @array.join(" ")
+      @array.compact.join(" ")
     end
   end
 
@@ -73,6 +73,14 @@ class LinkedList
   def includes?(data)
     array = to_string.split
     array.include?(data)
+  end
+
+  def pop
+    current = @head
+    until current.next_node.nil?
+      current = current.next_node
+    end
+    current.data = nil
   end
 
 end

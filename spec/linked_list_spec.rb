@@ -159,6 +159,20 @@ RSpec.describe LinkedList do
   end
 
   describe '#pop' do
-    it ''
+    it 'removes the last element from the list' do
+      list = LinkedList.new
+
+      node_a = list.append("deep")
+      node_b = list.append("woo")
+      node_c = list.append("shi")
+      node_d = list.append("shu")
+      node_e = list.append("blop")
+
+      expect(list.to_string).to eq "deep woo shi shu blop"
+
+      list.pop
+
+      expect(list.to_string).to eq "deep woo shi shu"
+    end
   end
 end
