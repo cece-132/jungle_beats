@@ -51,9 +51,28 @@ RSpec.describe LinkedList do
 
       node_a = list.append("doop")
       node_b = list.append("boo")
-      node_b = list.append("win")
+      node_c = list.append("win")
 
       expect(list.count).to eq 3
+    end
+  end
+
+  describe '#to_string' do
+    it 'returns the data of a node as a string' do
+      list = LinkedList.new
+
+      node_a = list.append("doop")
+
+      expect(list.to_string).to eq "doop"
+    end
+
+    it 'adds multiple nodes into a single string' do
+      list = LinkedList.new
+
+      node_a = list.append("doop")
+      node_b = list.append("boo")
+      node_c = list.append("win")
+      expect(list.to_string).to eq "doop boo win"
     end
   end
 end
