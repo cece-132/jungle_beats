@@ -44,12 +44,12 @@ class LinkedList
   def insert(position, data)
     current = @head
     if position <= @count
-      (position - 1).times do # used the -1 becayse
+      (position - 1).times do # used the -1 to move the position
         current = current.next_node
       end
     else
       position = @count
-      (position - 1).times do # used the -1 becayse
+      (position - 1).times do # used the -1 to move the position
         current = current.next_node
       end
     end
@@ -58,6 +58,15 @@ class LinkedList
 
     node.append_node(next_node)
     current.append_node(node)
+  end
+
+  def find(index, num_of_elements)
+    new_array = @array.rotate(index)
+    if new_array.count > 1
+      new_array.take(num_of_elements).join(" ")
+    else
+      new_array.take(num_of_elements).join("")
+    end
   end
 
 end

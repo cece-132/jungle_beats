@@ -112,4 +112,34 @@ RSpec.describe LinkedList do
       expect(list.to_string).to eq "win doop boo shoo"
     end
   end
+  
+  describe "#find(index, num_of_elements)" do
+    it 'returns the value at the index and the num_of_elements after it' do
+      list = LinkedList.new
+
+      node_a = list.append("deep")
+      node_b = list.append("woo")
+      node_c = list.append("shi")
+      node_d = list.append("shu")
+      node_e = list.append("blop")
+      
+      expect(list.to_string).to eq "deep woo shi shu blop"
+
+      expect(list.find(2,1)).to eq "shi"
+    end
+
+    it 'returns multiple elements when asked' do
+      list = LinkedList.new
+
+      node_a = list.append("deep")
+      node_b = list.append("woo")
+      node_c = list.append("shi")
+      node_d = list.append("shu")
+      node_e = list.append("blop")
+      
+      expect(list.to_string).to eq "deep woo shi shu blop"
+
+      expect(list.find(1,3)).to eq "woo shi shu"
+    end
+  end
 end
