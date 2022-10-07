@@ -75,4 +75,18 @@ RSpec.describe LinkedList do
       expect(list.to_string).to eq "doop boo win"
     end
   end
+
+  describe '#prepend' do
+    it 'adds a node to the beginning of a list' do
+      list = LinkedList.new
+
+      node_a = list.append("doop")
+      node_b = list.append("boo")
+
+      node_c = list.prepend("win")
+
+      expect(list.to_string).to eq "win doop boo"
+      expect(list.count).to eq 3
+    end
+  end
 end

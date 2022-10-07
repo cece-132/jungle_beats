@@ -15,4 +15,8 @@ class Node
     end
   end
 
+  def append_node(data)
+      @next_node = data
+  end
+
 end

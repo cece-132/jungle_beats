@@ -34,4 +34,11 @@ class LinkedList
     end
   end
 
+  def prepend(data)
+    @count += 1
+    next_node = @head
+    @head = Node.new(data)
+    @head.append_node(next_node)
+  end
+
 end
