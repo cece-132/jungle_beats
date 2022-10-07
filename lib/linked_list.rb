@@ -41,4 +41,23 @@ class LinkedList
     @head.append_node(next_node)
   end
 
+  def insert(position, data)
+    current = @head
+    if position <= @count
+      (position - 1).times do # used the -1 becayse
+        current = current.next_node
+      end
+    else
+      position = @count
+      (position - 1).times do # used the -1 becayse
+        current = current.next_node
+      end
+    end
+    next_node = current.next_node
+    node = Node.new(data)
+
+    node.append_node(next_node)
+    current.append_node(node)
+  end
+
 end

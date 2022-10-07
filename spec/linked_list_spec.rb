@@ -82,11 +82,34 @@ RSpec.describe LinkedList do
 
       node_a = list.append("doop")
       node_b = list.append("boo")
-
       node_c = list.prepend("win")
 
       expect(list.to_string).to eq "win doop boo"
       expect(list.count).to eq 3
+    end
+  end
+
+  describe 'insert' do
+    it 'can place a node in a specific place' do
+      list = LinkedList.new
+
+      node_a = list.append("doop")
+      node_b = list.append("boo")
+      node_c = list.prepend("win")
+      node_d = list.insert(1, "shoo")
+
+      expect(list.to_string).to eq "win shoo doop boo"
+    end
+
+    it 'changes position to list count if position int is greater than count' do
+      list = LinkedList.new
+
+      node_a = list.append("doop")
+      node_b = list.append("boo")
+      node_c = list.prepend("win")
+      node_d = list.insert(10, "shoo")
+
+      expect(list.to_string).to eq "win doop boo shoo"
     end
   end
 end
