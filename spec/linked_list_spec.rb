@@ -142,4 +142,23 @@ RSpec.describe LinkedList do
       expect(list.find(1,3)).to eq "woo shi shu"
     end
   end
+
+  describe '#includes?(data)' do
+    it 'finds if data is present on list' do
+      list = LinkedList.new
+
+      node_a = list.append("deep")
+      node_b = list.append("woo")
+      node_c = list.append("shi")
+      node_d = list.append("shu")
+      node_e = list.append("blop")
+
+      expect(list.includes?("deep")).to eq true
+      expect(list.includes?("dep")).to eq false
+    end
+  end
+
+  describe '#pop' do
+    it ''
+  end
 end

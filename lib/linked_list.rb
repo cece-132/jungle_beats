@@ -61,12 +61,18 @@ class LinkedList
   end
 
   def find(index, num_of_elements)
-    new_array = @array.rotate(index)
+    array = to_string.split
+    new_array = array.rotate(index)
     if new_array.count > 1
       new_array.take(num_of_elements).join(" ")
     else
       new_array.take(num_of_elements).join("")
     end
+  end
+
+  def includes?(data)
+    array = to_string.split
+    array.include?(data)
   end
 
 end
