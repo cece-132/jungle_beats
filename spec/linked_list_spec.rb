@@ -8,6 +8,12 @@ RSpec.describe LinkedList do
       expect(list).to be_a LinkedList
       expect(list.head).to be_nil
     end
+
+    it 'keeps count of the length of the list' do
+      list = LinkedList.new
+
+      expect(list.count).to eq 0
+    end
   end
 
   describe '#append(data)' do
@@ -28,6 +34,26 @@ RSpec.describe LinkedList do
 
       expect(list.head).to eq node_a
       expect(list.head.next_node).to eq node_b
+    end
+  end
+
+  describe '#count' do
+    it 'can count the length of the list' do
+      list = LinkedList.new
+
+      node_a = list.append("doop")
+
+      expect(list.count).to eq 1
+    end
+
+    it 'can count the length of the list part 2' do
+      list = LinkedList.new
+
+      node_a = list.append("doop")
+      node_b = list.append("boo")
+      node_b = list.append("win")
+
+      expect(list.count).to eq 3
     end
   end
 end
