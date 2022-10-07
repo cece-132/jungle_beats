@@ -17,4 +17,8 @@ class JungleBeat < LinkedList
   def count
     @list.count
   end
+
+  def play
+    `say -r 500 -v Fred "#{@list.to_string}"`
+  end
 end
